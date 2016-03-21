@@ -1,0 +1,87 @@
+import random
+
+print "Welcome to the 2016 South Carolina Primary!"
+print ""
+print "Let's see how the Democrats and Republicans did tonight..."
+print ""
+
+total_voters = 2888768  # Total number of registered voters in South Carolina(2014)
+
+candidates_dem = ['Bernie Sanders', 'Hillary Clinton']
+candidates_rep = ['Donald Trump', 'Ted Cruz', 'Jeb Bush', 'Marco Rubio', 'John Kasich', 'Ben Carson']
+
+def random_dem_turnout(candidates_dem):     # Sets randomized democratic turnout %
+    return round(random.uniform(0.1347,0.1947), 4) 
+
+dem_turnout = random_dem_turnout(candidates_dem)
+
+def random_dem_votes(candidates_dem):       # Random turnout % * total voters
+    return dem_turnout* total_voters
+    
+dem_votes = random_dem_votes(candidates_dem)
+
+# Millenial - SC = 25.48% / 58% favor Sanders & 40% favor Trump
+
+
+print "Democratic Turnout Percentage:", dem_turnout * 100, "%"
+print "Democratic Total Votes:",round(dem_votes)
+print ""
+
+def random_rep_turnout(candidates_rep):
+    return round(random.uniform(0.1079,0.1679), 4) 
+
+rep_turnout = random_rep_turnout(candidates_rep)
+
+def random_rep_votes(candidates_rep):
+    return rep_turnout* total_voters
+
+rep_votes = random_rep_votes(candidates_rep)
+
+print "Republican Turnout Percentage:", rep_turnout * 100, "%"
+print "Republican Total Votes:",round(rep_votes)
+print ""
+
+print "Now we seem to be getting in the first polling numbers of the night..."
+print "......."
+print "Soon we can annouce the winners and losers of the South Carloina Primary!"
+print ""
+print "First, we have the Democratic Side:"
+
+
+for dems in candidates_dem:
+    if dem_turnout > 0.1647:
+        def sanders_win(candidates_dem):
+            return (dem_turnout - 0.1647) + 0.50
+
+   
+        
+    else:
+        def clinton_win(candidates_dem):
+            return (0.1647 - dem_turnout) + 0.50
+
+sanders_percent = sanders_win(candidates_dem) * 100
+clinton_percent = clinton_win(candidates_dem) * 100
+
+if sanders_percent > clinton_percent:
+    print "Bernie Sanders: ", sanders_percent,"%"
+    print "Hillary Clinton: ", clinton_percent,"%"
+    print ""
+    print "And Bernie Wins!"
+else:
+    print "Hillary Clinton: ", clinton_percent,"%"
+    print "Bernie Sanders: ", sanders_percent,"%"
+    print ""
+    print "And Hillary Wins!"
+    
+print "Next, the Republican side:"
+
+for reps in candidates_rep:
+    if rep_turnout > 0.1379:
+        def trump_win(candidates_rep):
+            return (rep_turnout - 0.1379) + 0.50
+
+   
+        
+    else:
+        def clinton_win(candidates_dem):
+            return (0.1647 - dem_turnout) + 0.50
